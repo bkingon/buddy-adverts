@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  contact_name: MyString
+  contact_number: MyString
+  contact_email: MyString
+  contact_address: MyString
+  user_id: 
+  start_month: 2016-01-23
+  end_month: 2016-01-23
+
+two:
+  title: MyString
+  body: MyString
+  contact_name: MyString
+  contact_number: MyString
+  contact_email: MyString
+  contact_address: MyString
+  user_id: 
+  start_month: 2016-01-23
+  end_month: 2016-01-23

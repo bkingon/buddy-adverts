@@ -1,0 +1,34 @@
+h1 Listing adverts
+
+table
+  thead
+    tr
+      th Title
+      th Body
+      th Contact name
+      th Contact number
+      th Contact email
+      th Contact address
+      th User
+      th Start month
+      th End month
+      th
+      th
+      th
+
+  tbody
+    - @adverts.each do |advert|
+      tr
+        td = advert.title
+        td = advert.body
+        td = advert.contact_name
+        td = advert.contact_number
+        td = advert.contact_email
+        td = advert.contact_address
+        td = advert.user.email
+        td = advert.start_month
+        td = advert.end_month
+
+br
+
+= link_to 'New Advert', new_advert_path if current_user

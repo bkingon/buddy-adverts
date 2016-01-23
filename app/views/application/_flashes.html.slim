@@ -1,0 +1,7 @@
+- if flash
+  - flash.each do |name, message|
+    .row.column data-closable=''
+      div class="alert--#{name}"
+        .alert__container
+          = content_tag :button, '<span>&times;</span>'.html_safe, type: 'button', class: 'close-button', 'data-close'=>''
+          = simple_format message

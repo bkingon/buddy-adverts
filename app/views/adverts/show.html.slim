@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @advert.title
+p
+  strong Body:
+  = @advert.body
+p
+  strong Contact name:
+  = @advert.contact_name
+p
+  strong Contact number:
+  = @advert.contact_number
+p
+  strong Contact email:
+  = @advert.contact_email
+p
+  strong Contact address:
+  = @advert.contact_address
+p
+  strong User:
+  = @advert.user.name
+p
+  strong Start month:
+  = @advert.start_month
+p
+  strong End month:
+  = @advert.end_month
+
+= link_to 'Edit', edit_advert_path(@advert)
+'|
+= link_to 'Back', adverts_path

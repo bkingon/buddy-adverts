@@ -1,0 +1,43 @@
+doctype html
+/ html class=browser_class
+html
+  head
+    / = meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=>true
+    = javascript_include_tag 'vendor/modernizr.js', 'data-turbolinks-track'=>false
+    = render 'analytics'
+    = csrf_meta_tags
+    = javascript_include_tag 'https://use.typekit.net/zva5gkd.js'
+    javascript:
+      try{Typekit.load({ async: true });}catch(e){}
+
+  / body class=body_class
+  body
+    / = render 'environment_indicator'
+    / - root_path = user_session ? authenticated_root_path : unauthenticated_root_path
+
+    header.main-header-row
+      .main-header
+        figure.main-header__logo 
+          = image_tag('logo.svg')
+        nav.main-header__nav
+          ul.menu.align-right
+            - if request.path != root_path
+              li.nav-header__item = link_to fa_icon('home'), root_path, class: request.path == root_path ? 'is-active' : nil
+            li.nav-header__item = link_to 'About', page_path('about'), class: request.path == page_path('about') ? 'is-active' : nil
+            li.nav-header__item = link_to 'Contact', page_path('contact'), class: request.path == page_path('contact') ? 'is-active' : nil
+            - if user_session
+              li.nav-header__item = link_to 'Logout', destroy_user_session_path, :method => :delete
+            - else
+              li.nav-header__item = link_to 'Sign In', new_user_session_path
+    main.main-body
+      = render 'flashes'
+      = yield
+
+    footer.main-footer.sticky
+      .grid &copy; #{Time.now.year} #{t(:site_title)} — All rights reserved.
+
+    = javascript_include_tag 'application', 'data-turbolinks-track'=>true
+    javascript:
+      $(document).foundation()
+    = content_for(:script)
