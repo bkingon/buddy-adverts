@@ -1,0 +1,28 @@
+$global-lineheight: $base-line-height;
+$body-font-family: $base-font-family;
+$header-font-family: $base-font-family;
+
+//Anchors
+$anchor-color: $bright-blue;
+$anchor-color-hover: scale-color($bright-blue, $lightness: -14%);
+
+
+// Tabs
+$tab-margin: 0;
+$tab-background: $white;
+$tab-background-active: $bright-blue;
+$tab-item-color: foreground($tab-background, $primary-color);
+$tab-item-padding: 0.7rem 1rem;
+$tab-content-border: none;
+$tab-content-padding: 1rem 0;
+
+//Accordion
+$accordion-background: transparent;
+$accordion-plusminus: true;
+$accordion-item-color: foreground($accordion-background, $primary-color);
+$accordion-item-background-hover: $light-gray;
+$accordion-item-padding: 1rem 0.5rem;
+$accordion-content-background: transparent;
+$accordion-content-border: none;
+$accordion-content-color: transparent;
+$accordion-content-padding: 1rem;

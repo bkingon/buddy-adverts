@@ -1,0 +1,49 @@
+.asset-selector
+  padding: 0 !important
+
+  .asset-column-group
+    .asset-column
+      +grid-column(6)
+      &:first-child
+        padding-left: 0
+      .asset-list
+        +reset-list
+        margin: 0
+        padding: 0
+        .asset-list__item
+          border-bottom: 1px solid #ececec
+          padding: 0.5rem 0
+          display: block
+          a
+            color: $body-color
+            display: block
+            &:hover
+              color: $bright-blue
+          &.has-children
+            a
+              position: relative
+              &:after
+                content: "\f054"
+                font-family: FontAwesome
+                font-size: 10px
+                display: block
+                position: absolute
+                right: 0
+                top: 4px
+
+.asset-sidebar
+  +grid-column(4)
+  background: #efefef
+  margin-top: 1rem
+  h5
+    padding: 1rem 0.5rem
+    font-size: 16px
+  .accordion
+    padding: 0
+    .accordion-title
+      font-weight: 900
+      font-size: 11px
+      text-transform: uppercase
+      color: $medium-grey
+    .accordion-content
+      padding: 1rem 0

@@ -1,0 +1,61 @@
+.alert,
+.alert--alert,
+.alert--error,
+.alert--info,
+.alert--notice,
+.alert--success,
+.alert--warning
+  border: 1px solid #FFF
+  border-radius: 4px
+  color: #FFF
+  margin-bottom: $gap
+  position: relative
+  transition: opacity 300ms ease-out
+
+  &.alert-close
+    opacity: 0
+
+  .close-button
+    color: #FFF
+    cursor: pointer
+    opacity: 0.6
+    &:hover
+      color: #FFF
+      opacity: 1
+
+.alert--notice,
+.alert--success
+  background-color: tint($alert-success-color, 80%)
+  border-color: $alert-success-color
+  color: $alert-success-color
+  .close-button
+    color: $alert-success-color
+
+.alert,
+.alert--info
+  background-color: tint($alert-info-color, 80%)
+  border-color: $alert-info-color
+  color: $alert-info-color
+  .close-button
+    color: $alert-info-color
+
+.alert--warning
+  background-color: tint($alert-warn-color, 80%)
+  border-color: $alert-warn-color
+  color: $alert-warn-color
+  .close-button
+    color: $alert-warn-color
+
+.alert--alert,
+.alert--error
+  background-color: tint($alert-error-color, 80%)
+  border-color: $alert-error-color
+  color: $alert-error-color
+  .close-button
+    color: $alert-error-color
+
+.alert__container
+  padding: 1rem
+  position: relative
+  *:last-child
+    margin-bottom: 0
