@@ -1,5 +1,6 @@
 class AdvertsController < ApplicationController
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /adverts
   def index
@@ -8,6 +9,9 @@ class AdvertsController < ApplicationController
 
   # GET /adverts/1
   def show
+    if @advert.user != current_user
+      redirect_to root_path
+    end
   end
 
   # GET /adverts/new
@@ -17,10 +21,16 @@ class AdvertsController < ApplicationController
 
   # GET /adverts/1/edit
   def edit
+    if @advert.user != current_user
+      redirect_to root_path
+    end
   end
 
   # POST /adverts
   def create
+    unless current_user
+      redirect_to root_path
+    end
     @advert = Advert.new(advert_params)
     @advert.user = current_user
     if @advert.save
@@ -32,6 +42,9 @@ class AdvertsController < ApplicationController
 
   # PATCH/PUT /adverts/1
   def update
+    if @advert.user != current_user
+      redirect_to root_path
+    end
     if @advert.update(advert_params)
       redirect_to @advert, notice: 'Advert was successfully updated.'
     else

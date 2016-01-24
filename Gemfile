@@ -5,7 +5,7 @@ ruby '2.3.0'
 gem 'rails', '4.2.5'
 gem 'pg'
 gem 'devise'
-# gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
 
 # Core
 gem 'breadcrumbs_on_rails'
