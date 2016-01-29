@@ -34,8 +34,8 @@ h1 Listing adverts
 .row.small-up-1.medium-up-2.large-up-3
   - @adverts.each do |advert|
     .column
-      .adver-block
-        h3 = advert.title
+      .wrap
+        h1 = advert.title
         p = advert.body
         p = "#{advert.contact_name} - #{advert.contact_number}"
   / <div class="column">

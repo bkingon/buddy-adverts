@@ -1,0 +1,91 @@
+/ <!DOCTYPE html>
+/ <html lang="en">
+/   <head>
+/     <meta charset="utf-8" />
+/     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/ 
+/     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+/ 
+/     <!-- <%= stylesheet_link_tag    "application" %> -->
+/     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=>true %>
+/     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+/     <%= csrf_meta_tags %>
+/   </head>
+/ 
+/   <body>
+/     <%= render 'application/top_bar' %>
+/     <%= yield %>
+/ 
+/   </body>
+/ </html>
+doctype html
+html 
+  head
+    = stylesheet_link_tag 'preloader', media: 'all', 'data-turbolinks-track'=>true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=>true
+    = javascript_include_tag 'vendor/modernizr.js', 'data-turbolinks-track'=>false
+    = render 'analytics'
+    = csrf_meta_tags
+    = javascript_include_tag 'https://use.typekit.net/zva5gkd.js'
+    javascript:
+      try{Typekit.load({ async: true });}catch(e){}
+
+  / header.main-header-row
+  /   .main-header
+  /     / figure.main-header__logo 
+  /     /   = image_tag('logo.svg')
+  /     nav.main-header__nav
+  /       ul.menu.align-right
+  /         - if request.path != root_path
+  /           li.nav-header__item = link_to fa_icon('home'), root_path, class: request.path == root_path ? 'is-active' : nil
+  /         li.nav-header__item = link_to 'About', page_path('about'), class: request.path == page_path('about') ? 'is-active' : nil
+  /         li.nav-header__item = link_to 'Contact', page_path('contact'), class: request.path == page_path('contact') ? 'is-active' : nil
+  /         - if user_session
+  /           li.nav-header__item = link_to 'Logout', destroy_user_session_path, :method => :delete
+  /         - else
+  /           li.nav-header__item = link_to 'Sign In', new_user_session_path
+  body 
+    / = render 'top_bar'
+    / - root_path = user_session ? authenticated_root_path : unauthenticated_root_path
+
+    .top-bar
+      .top-bar-left
+        ul.dropdown.menu data-dropdown-menu="" 
+          li.menu-text Buddy Adverts
+          / li
+          /   a href="#"  One
+          /   ul.menu.vertical
+          /     li
+          /       a href="#"  One
+          / li
+          /   a href="#"  Two
+          li
+            a href="#"  Adverts
+          li
+            a href="#"  Apply for Advert
+          li
+            a href="#"  Terms and Conditions
+          - if user_session
+            li
+              = link_to 'Logout', destroy_user_session_path, :method => :delete
+          - else
+            li
+              = link_to 'Sign In', new_user_session_path
+      .top-bar-right
+        ul.menu
+          li
+            input placeholder="Search" type="search" /
+          li
+            button.button type="button"  Search
+
+    main.main-body
+      = render 'flashes'
+      = yield
+
+    footer.main-footer.sticky
+      .grid &copy; #{Time.now.year} #{t(:site_title)} — All rights reserved.
+
+    = javascript_include_tag 'application', 'data-turbolinks-track'=>true
+    javascript:
+      $(document).foundation()
+    = content_for(:script)
