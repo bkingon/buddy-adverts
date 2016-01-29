@@ -1,4 +1,5 @@
 class AdvertsController < ApplicationController
+  layout "application"
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
 
