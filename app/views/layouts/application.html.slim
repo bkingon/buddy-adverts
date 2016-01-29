@@ -60,11 +60,11 @@ html
           / li
           /   a href="#"  Two
           li
-            a href="#"  Adverts
+            a href="/"  Adverts
           li
-            a href="#"  Apply for Advert
+            a href="/pages/about"  Apply for Advert
           li
-            a href="#"  Terms and Conditions
+            a href="/pages/terms_and_conditions"  Terms and Conditions
           - if user_session
             li
               = link_to 'Logout', destroy_user_session_path, :method => :delete

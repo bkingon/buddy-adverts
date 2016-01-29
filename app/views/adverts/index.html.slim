@@ -1,58 +1,17 @@
-h1 Listing adverts
+.container
+  .row
+    h1 Adverts
 
-/ table
-/   thead
-/     tr
-/       th Title
-/       th Body
-/       th Contact name
-/       th Contact number
-/       th Contact email
-/       th Contact address
-/       th User
-/       th Start month
-/       th End month
-/       th
-/       th
-/       th
-/ 
-/   tbody
-/     - @adverts.each do |advert|
-/       tr
-/         td = advert.title
-/         td = advert.body
-/         td = advert.contact_name
-/         td = advert.contact_number
-/         td = advert.contact_email
-/         td = advert.contact_address
-/         td = advert.user.email
-/         td = advert.start_month
-/         td = advert.end_month
-/ 
-/ br
+  .row
+    - @adverts.group_by(&:category).each do |category, adverts|
+      hr
+      .row.small-up-1.medium-up-2.large-up-3
+        h3 = category.to_s.humanize
+        - adverts.each do |advert|
+          .column
+            .wrap
+              h1 = advert.title
+              p = advert.body
+              p = "#{advert.contact_name} - #{advert.contact_number}"
 
-.row.small-up-1.medium-up-2.large-up-3
-  - @adverts.each do |advert|
-    .column
-      .wrap
-        h1 = advert.title
-        p = advert.body
-        p = "#{advert.contact_name} - #{advert.contact_number}"
-  / <div class="column">
-  /   <img src="//placehold.it/300x300" class="thumbnail" alt="">
-  / </div>
-  / <div class="column">
-  /   <img src="//placehold.it/300x300" class="thumbnail" alt="">
-  / </div>
-  / <div class="column">
-  /   <img src="//placehold.it/300x300" class="thumbnail" alt="">
-  / </div>
-  / <div class="column">
-  /   <img src="//placehold.it/300x300" class="thumbnail" alt="">
-  / </div>
-  / <div class="column">
-  /   <img src="//placehold.it/300x300" class="thumbnail" alt="">
-  / </div>
-/ </div>
-
-= link_to 'New Advert', new_advert_path if current_user
+    = link_to 'New Advert', new_advert_path if current_user
