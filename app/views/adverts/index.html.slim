@@ -12,6 +12,9 @@
             .wrap
               h1 = advert.title
               p = advert.body
-              p = "#{advert.contact_name} - #{advert.contact_number}"
+              .contact-details
+                p = "#{advert.contact_name} - #{advert.contact_number}"
+                p = "#{advert.contact_email}"
+                p = "#{advert.contact_address}"
 
     = link_to 'New Advert', new_advert_path if current_user
