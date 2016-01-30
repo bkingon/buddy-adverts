@@ -51,7 +51,8 @@ html
     .top-bar
       .top-bar-left
         ul.dropdown.menu data-dropdown-menu="" 
-          li.menu-text Buddy Adverts
+          li.menu-text 
+            a href='/' Buddy Adverts
           / li
           /   a href="#"  One
           /   ul.menu.vertical
@@ -60,7 +61,7 @@ html
           / li
           /   a href="#"  Two
           li
-            a href="/"  Adverts
+            a href="/adverts"  Adverts
           li
             a href="/pages/about"  Apply for Advert
           li
@@ -78,9 +79,10 @@ html
           li
             button.button type="button"  Search
 
-    main.main-body
-      = render 'flashes'
-      = yield
+    .row
+      main.main-body
+        = render 'flashes'
+        = yield
 
     footer.main-footer.sticky
       .grid &copy; #{Time.now.year} #{t(:site_title)} — All rights reserved.
