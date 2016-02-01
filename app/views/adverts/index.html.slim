@@ -1,6 +1,7 @@
 .container
   .row
-    h1 Adverts
+    .heading
+      h1 Adverts
 
   .row
     - @adverts.group_by(&:category).each do |category, adverts|
@@ -13,7 +14,7 @@
               h1 = advert.title
               p = advert.body
               .contact-details
-                p = "#{advert.contact_name} - #{advert.contact_number}"
+                p = ("<strong>#{advert.contact_name}</strong> #{advert.contact_number}").html_safe
                 p = "#{advert.contact_email}"
                 p = "#{advert.contact_address}"
 

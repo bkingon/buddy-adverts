@@ -66,12 +66,12 @@ html
             a href="/pages/about"  Apply for Advert
           li
             a href="/pages/terms_and_conditions"  Terms and Conditions
-          - if user_session
-            li
-              = link_to 'Logout', destroy_user_session_path, :method => :delete
-          - else
-            li
-              = link_to 'Sign In', new_user_session_path
+          / - if user_session
+          /   li
+          /     = link_to 'Logout', destroy_user_session_path, :method => :delete
+          / - else
+          /   li
+          /     = link_to 'Sign In', new_user_session_path
       .top-bar-right
         / ul.menu
         /   li

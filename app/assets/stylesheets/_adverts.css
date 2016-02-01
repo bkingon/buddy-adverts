@@ -1,21 +1,22 @@
 body{
+    /*// background-image: url('smiley.gif');*/
+    background: #fff url(http://p1.pichost.me/i/56/1797601.jpg) repeat;
     /*background:#f9f9f9 url(http://tympanus.net/Tutorials/OriginalHoverEffects/images/white_texture.jpg) repeat top left;*/
-    /*background: #fff url(http://p1.pichost.me/i/56/1797601.jpg) repeat;*/
-    background: #fff url(http://p1.pichost.me/i/56/1797601.jpg);
-    // background-image: url('smiley.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     color: #333;
     font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: awesome;
     color: #4A4A4A ;
+    /*background: #fff url(http://p1.pichost.me/i/56/1797601.jpg);*/
 }
 
 .wrap {
     text-align: center;
-    width: 330px;
-    height: 290px;
+    width: 350px;
+    height: 310px;
     margin: 20px auto;
     display: block;
     padding:20px;
@@ -60,4 +61,12 @@ body{
 .wrap a:hover{
     text-decoration: underline;
     color: #6B6B6B !important ;
+}
+
+h3 {
+  color: white;
+}
+
+.heading h1 {
+    color: white;
 }
