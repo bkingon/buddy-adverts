@@ -35,4 +35,9 @@ a.button:active{
 
 .about-page {
   color: white;
+  font-size: 18px;
+}
+
+.about-page .t-c-heading {
+  text-align: center;
 }
