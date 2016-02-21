@@ -1,10 +1,17 @@
 .container
   .row
+    .flash-notices
+      - if @flash_notice && @flash_notice.published?
+        = @flash_notice.html_content.html_safe
     .heading
-      h1 Adverts
+      .large-6.columns
+        h1 Adverts
+      .large-6.columns
+        .download-adverts
+          = link_to 'Download Adverts PDF', '/buddy-adverts-01.pdf', target: :blank
 
   .row
-    - ['church_ads', 'health_service', 'financial_services', 'food_and_catering', 'restaurants_and_conferencing', 'product_sales', 'moto_vehicles', 'household_services', 'other_small_businesses', 'property_for_sale', 'property_to_rent', 'employment_offered', 'employment_wanted', 'general', 'holiday_accomodation', nil].each do |ad_type|
+    - ['church_ads', 'health_services', 'financial_services', 'food_and_catering', 'restaurants_and_conferencing', 'product_sales', 'motor_vehicles', 'household_services', 'other_small_businesses', 'property_for_sale', 'property_to_rent', 'employment_offered', 'employment_wanted', 'general', 'holiday_accommodation', nil].each do |ad_type|
         - grouped_adverts = @adverts.select { |a| a.category == ad_type }
         - if grouped_adverts.any?
           hr 

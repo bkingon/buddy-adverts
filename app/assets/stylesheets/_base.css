@@ -41,3 +41,19 @@ a.button:active{
 .about-page .t-c-heading {
   text-align: center;
 }
+
+.flash-notices {
+  padding-top: 10px;
+  color: white;
+  font-size: 1.3em;
+}
+
+.download-adverts {
+  padding-top: 10px;
+  float: right;
+  font-size: 1.5em;
+}
+
+.download-adverts a{
+    color: white !important;
+  }

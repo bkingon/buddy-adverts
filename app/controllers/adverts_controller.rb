@@ -6,6 +6,7 @@ class AdvertsController < ApplicationController
   # GET /adverts
   def index
     @adverts = Advert.all
+    @flash_notice = Content.first
   end
 
   # GET /adverts/1
