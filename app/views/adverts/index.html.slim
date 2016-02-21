@@ -4,18 +4,20 @@
       h1 Adverts
 
   .row
-    - @adverts.group_by(&:category).each do |category, adverts|
-      hr
-      .row.small-up-1.medium-up-2.large-up-3
-        h3 = category.to_s.humanize
-        - adverts.each do |advert|
-          .column
-            .wrap
-              h1 = advert.title
-              p = advert.body
-              .contact-details
-                p = ("<strong>#{advert.contact_name}</strong> #{advert.contact_number}").html_safe
-                p = "#{advert.contact_email}"
-                p = "#{advert.contact_address}"
+    - ['church_ads', 'health_service', 'financial_services', 'food_and_catering', 'restaurants_and_conferencing', 'product_sales', 'moto_vehicles', 'household_services', 'other_small_businesses', 'property_for_sale', 'property_to_rent', 'employment_offered', 'employment_wanted', 'general', 'holiday_accomodation', nil].each do |ad_type|
+        - grouped_adverts = @adverts.select { |a| a.category == ad_type }
+        - if grouped_adverts.any?
+          hr 
+          .row.small-up-1.medium-up-2.large-up-3
+            h3 = ad_type.to_s.humanize 
+            - grouped_adverts.each do |advert|
+              .column
+                .wrap
+                  h1 = advert.title
+                  p = advert.body
+                  .contact-details
+                    p = ("<strong>#{advert.contact_name}</strong> #{advert.contact_number}").html_safe
+                    p = "#{advert.contact_email}"
+                    p = "#{advert.contact_address}"
 
     = link_to 'New Advert', new_advert_path if current_user
