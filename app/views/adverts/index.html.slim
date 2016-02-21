@@ -11,7 +11,7 @@
           = link_to 'Download Adverts PDF', '/buddy-adverts-01.pdf', target: :blank
 
   .row
-    - ['church_ads', 'health_services', 'financial_services', 'food_and_catering', 'restaurants_and_conferencing', 'product_sales', 'motor_vehicles', 'household_services', 'other_small_businesses', 'property_for_sale', 'property_to_rent', 'employment_offered', 'employment_wanted', 'general', 'holiday_accommodation', nil].each do |ad_type|
+    - ['church_ads', 'health_services', 'financial_services', 'food_and_catering', 'restaurants_and_conferencing', 'product_sales', 'motor_vehicles', 'household_services', 'other_small_businesses', 'holiday_accommodation', 'property_for_sale', 'property_to_rent', 'employment_offered', 'employment_wanted', 'general', nil].each do |ad_type|
         - grouped_adverts = @adverts.select { |a| a.category == ad_type }
         - if grouped_adverts.any?
           hr 
