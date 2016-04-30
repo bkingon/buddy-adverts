@@ -21,7 +21,6 @@
 doctype html
 html 
   head
-    title Buddy Adverts
     = stylesheet_link_tag 'preloader', media: 'all', 'data-turbolinks-track'=>true
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=>true
     = javascript_include_tag 'vendor/modernizr.js', 'data-turbolinks-track'=>false
@@ -30,6 +29,7 @@ html
     = javascript_include_tag 'https://use.typekit.net/zva5gkd.js'
     javascript:
       try{Typekit.load({ async: true });}catch(e){}
+    = metamagic
 
   / header.main-header-row
   /   .main-header
