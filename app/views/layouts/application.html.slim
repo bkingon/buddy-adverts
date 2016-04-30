@@ -86,6 +86,7 @@ html
       main.main-body
         = render 'flashes'
         = yield
+        = render 'layouts/footer'
 
     / footer.main-footer.sticky
     /   .grid &copy; #{Time.now.year} #{t(:site_title)} — All rights reserved.
