@@ -60,6 +60,7 @@ group :development do
   gem 'thin'
   gem 'web-console', '~> 2.0'
   gem "letter_opener"
+  gem "rubycritic", :require => false
 end
 
 group :test do
